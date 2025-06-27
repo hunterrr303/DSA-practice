@@ -1,0 +1,36 @@
+# Pattern Printing Practice
+
+## Pattern-1: Rectangular Star Pattern
+
+Output:
+* * * 
+* * * 
+* * * 
+
+
+### 🔍 Logic:
+Use two loops. Outer for rows, inner for columns printing `*`.
+
+##code:
+void Rectangular_Star_Pattern(int n){
+    //outer loop for rows
+    for(int i = 0 ; i<n;i++){
+            //inner loop for columns
+            // int cnt = 1;
+        for(int j=0;j<=i;j++){
+            cout<<"*";
+        }cout<<endl;
+     }}
+
+
+### 🧠 Learning:
+- Learned nested loops
+- Understood how row number = star count
+
+---
+
+## Pattern-2: Right-Angled Triangle Pattern
+## Pattern - 3: Right-Angled Number Pyramid
+##
+##
+##
