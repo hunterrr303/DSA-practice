@@ -1,0 +1,267 @@
+# Pattern Printing Practice
+
+## Pattern-1: Rectangular Star Pattern
+
+Output:
+* * * 
+* * * 
+* * * 
+
+
+### Logic:
+Use two loops. Outer for rows, inner for columns printing `*`.
+
+##code:
+void Rectangular_Star_Pattern(int n){
+    //outer loop for rows
+    for(int i = 0 ; i<n;i++){
+            //inner loop for columns
+            // int cnt = 1;
+        for(int j=0;j<=i;j++){
+            cout<<"*";
+        }cout<<endl;
+     }}
+
+
+### Learning:
+- Learned nested loops
+- How outer and inner loop works for rows and coulmns
+
+---
+
+## Pattern-2: Right-Angled Triangle Pattern
+    Input Format: N = 3
+Result: 
+* 
+* * 
+* * *
+
+Logic:  USe two inner and outer loops, outer loop for rows till ( i=0; i<n; where n is input )
+                    And inner loop to print stars using ( j=0; j<=i; j++ )
+code:
+void Right_Angled_Triangle(int n){
+    //outer loop
+    for(int i=0; i<n; i++){
+        for(int j=0; j<=i; j++){
+            cout<<"*";
+        } cout<<endl;
+    }
+}
+
+
+## Pattern - 3: Right-Angled Number Pyramid
+Input Format: N = 3
+Result: 
+1
+1 2 
+1 2 3
+
+Logic: USing two inenr and outer loop, outer for rows and inner for coulmns,
+        inner- ( j =0; j<=i; j++ ) and cout<<j;
+
+Code:
+void Right_Angled_Number_Pyramid(int n){
+    //outer loop
+    for(int i=1; i<=n;i++){
+        //inner loop[
+        for(int j=1;j<=i;j++){
+            cout<<j;
+        }cout<<endl;
+    }
+}
+
+## Pattern - 4: Right-Angled Number Pyramid - II
+
+Input Format: N = 3
+Result: 
+1
+2 2 
+3 3 3
+
+Logic - use two loops, for(int j =1; j<=n;j++) and cout<<i;
+code:void RTNT(int n){
+    //ouet loop for rows
+    for(int i=1;i<=n;i++){
+        //inner loop
+        for(int j=1;j<=i;j++){
+            cout<<i;
+        } cout<<endl;
+    }
+}
+
+## Pattern-5: Inverted Right Pyramid
+
+Input Format: N = 3
+Result: 
+* * *
+* * 
+*
+
+Logic -  first approach --> Here we can use reverse loop  ( i-- ) in inner loop , outer remains same
+        Optimal approach--> using ++ loops, start inner loop as ( int j=i;j<n;j++ )
+
+code:
+void rvt(int n){
+    //outer loop for rows remains same
+    for(int i=0; i<n; i++){
+        //inner loop to print star
+        for(int j=i;j<n;j++){
+            cout<<"*";
+        } cout<<endl;
+    }
+}
+
+## Pattern - 6: Inverted Numbered Right Pyramid
+
+Input Format: N = 3
+Result: 
+1 2 3
+1 2
+1
+
+Logic - inner and oute rloop, inner loop - > for (j=i;j<n;j++0 and cout<<i;
+
+Code:
+void Inverted_Numbered_Right_Pyd(int n){
+    //outer loop
+    for(int i=1; i<=n; i++){
+        //inner loop
+        for(int j=i; j<=n; j++){
+            cout<<j;
+        } cout<<endl;
+    }
+}
+
+
+
+
+
+
+# SORTING 
+
+1. Selection sort
+
+Problem Statement: Given an array of N integers, write a program to implement the Selection sorting algorithm.
+
+
+Algorithm: start two fir loops, first from i =0 till i= n-1 to traverse the array and inner loop to find minimum.
+
+Examples:
+
+Example 1:
+Input: N = 6, array[] = {13,46,24,52,20,9}
+Output: 9,13,20,24,46,52
+Explanation: After sorting the array is: 9, 13, 20, 24, 46, 52
+
+#include<bits/stdc++.h>
+
+using namespace std;
+void selection_sort(int arr[], int n) {
+  // selection sort
+  for (int i = 0; i < n - 1; i++) {
+    int mini = i;
+    for (int j = i + 1; j < n; j++) {
+      if (arr[j] < arr[mini]) {
+        mini = j;
+      }
+    }
+    int temp = arr[mini];
+    arr[mini] = arr[i];
+    arr[i] = temp;
+  }
+
+
+
+
+
+#Array ( EASY )
+
+1. Find the Largest element in an array
+
+We can sort the array in ascending order, hso the largest element will be at the last index of the array. 
+
+Approach: 
+Sort the array in ascending order.
+Print the (size of the array -1)th index.
+
+CODE : 
+
+int sortArr(vector<int>& arr) {
+    sort(arr.begin(),arr.end());
+    return arr[arr.size()-1];
+}
+ 
+int main() {
+    vector<int> arr1 = {2,5,1,3,0};
+    vector<int> arr2 = {8,10,5,7,9};
+   
+    cout<<"Largest element is: "<<sortArr(arr1)<<endl;
+    cout<<"Largest element is: "<<sortArr(arr2);
+
+2. Find Second Smallest and Second Largest Element in an array
+
+Brute force Approach:
+Sort the array in ascending order
+The element present at the second index is the second smallest element
+The element present at the second index from the end is the second largest element
+
+Better Approach:
+Find the smallest and largest element in the array in a single traversal
+After this, we once again traverse the array and find an element that is just greater than the smallest element we just found.
+Similarly, we would find the largest element which is just smaller than the largest element we just found
+Indeed, this is our second smallest and second largest element.
+
+3. Check if an Array is Sorted
+
+Approach: Efficient 
+As wkt sorted array the previous of every element is smaller than or equal to its current element.
+Through this, we can conclude that if the previous element is smaller than or equal to the current element then. Then we can say that the two elements are sorted. If the condition is true for the entire array then the array is sorted.
+We will check every element with its previous element if the previous element is smaller than or equal to the current element then we will move to the next index.
+If the whole array is traversed successfully or the size of the given array is zero or one (i.e N = 0 or N = 1). Then we will return True else return False.
+
+Coe: bool isSorted(int arr[], int n) {
+  for (int i = 1; i < n; i++) {
+    if (arr[i] < arr[i - 1])
+      return false;
+  }
+  return true;
+}
+int main() {
+  int arr[] = {1, 2, 3, 4, 5}, n = 5;
+  printf("%s", isSorted(arr, n) ? "True" : "False");
+
+}
+
+4. Remove Duplicates in-place from Sorted Array
+
+Approach: 
+
+Declare a HashSet.
+Run a for loop from starting to the end.
+Put every element of the array in the set.
+Store size of the set in a variable K.
+Now put all elements of the set in the array from the starting of the array.
+Return K.
+
+code :
+int removeDuplicates(int arr[], int n) {
+  set < int > set;
+  for (int i = 0; i < n; i++) {
+    set.insert(arr[i]);
+  }
+  int k = set.size();
+  int j = 0;
+  for (int x: set) {
+    arr[j++] = x;
+  }
+  return k;
+}
+int main() {
+  int arr[] = {1,1,2,2,2,3,3};
+  int n = sizeof(arr)/sizeof(arr[0]);
+  int k = removeDuplicates(arr, n);
+  cout << "The array after removing duplicate elements is " << endl;
+  for (int i = 0; i < k; i++) {
+    cout << arr[i] << " ";
+  }
+}
