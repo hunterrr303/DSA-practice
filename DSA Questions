@@ -592,3 +592,38 @@ public:
         next = nullptr;
     }
 };
+
+
+
+Recursion
+
+Ques - Print 1 to N using Recursion
+
+Approach - using backtracking , printing the numbers.
+
+Code 
+class Solution {
+  public:
+    void printNumbers(int n) {
+        
+        if(n<1){
+          return;
+        }
+        printNumbers(n-1);
+        cout<<n<<endl;
+        
+    }
+};
+
+Que -Print name N times using recursion
+
+COde:
+// Print name N times using recursion
+void printingName(int n){
+    if(n<1){
+        return;
+    }
+    //Using backtracking
+    printingName(n-1);
+    cout<<"Atul"<<endl;
+}
